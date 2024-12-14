@@ -1,0 +1,45 @@
+<project xmlns="https://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>Ganesh_Cucumber_Framework_Automation</groupId>
+	<artifactId>Ganesh_Cucumber_Framework_Automation</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<properties>
+		<CucumberJava-Version>7.20.1</CucumberJava-Version>
+		<CucumberTestNg-Version>7.20.1</CucumberTestNg-Version>
+		<Cucumber-Picocontainer-Version>7.20.1</Cucumber-Picocontainer-Version>
+		<SeleniumJava-Version>4.25.0</SeleniumJava-Version>
+		<TestNG-Picocontainer-Version>2.15</TestNG-Picocontainer-Version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>${CucumberJava-Version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-testng</artifactId>
+			<version>${CucumberTestNg-Version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-picocontainer</artifactId>
+			<version>${Cucumber-Picocontainer-Version}</version>
+		</dependency>
+		<!--
+		https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${SeleniumJava-Version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.picocontainer</groupId>
+			<artifactId>picocontainer</artifactId>
+			<version>${TestNG-Picocontainer-Version}</version>
+		</dependency>
+	</dependencies>
+</project>
