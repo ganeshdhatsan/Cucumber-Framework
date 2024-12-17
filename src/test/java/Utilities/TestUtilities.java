@@ -1,46 +1,56 @@
 package Utilities;
 
-import org.openqa.selenium.By;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 public class TestUtilities {
-	
-	WebDriver driver;
-	
-	//To identify the dynamic values
-	// locators = > id name xpath
-	// String text
-	
-	private void findMethod() {
-		WebElement element = driver.findElement(By.id("email"));
+
+	public static WebDriver driver;
+
+	public WebDriver launchBrowser(String browser) {
+		switch (browser.toUpperCase()) {
+		case "CHROME":
+			return new ChromeDriver();
+		case "EDGE":
+			return new EdgeDriver();
+		case "SAFARI":
+			return new SafariDriver();
+		case "FIREFOX":
+			return new FirefoxDriver();
+		default:
+			throw new IllegalArgumentException("Inva;id Browser Name :" + browser);
+		}
 	}
-//stage 1
-	
-	private void findMethod1(String text) {
-		WebElement element = driver.findElement(By.id(text));
-	}
-//stage 2	
-	private WebElement findMethod2(String text) {
-		WebElement element = driver.findElement(By.id(text));
-		return element;
-	}
-//stage 3(Real time)
-	private WebElement findMethod3(String text) {
-		return driver.findElement(By.id(text));
-	}
-//stage 4	
-	private void textBoxValue(String locator,String textValue) {
-		findMethod3(locator).sendKeys(textValue);
+
+	public void launchUrl(String url) {
+		driver.get(null);
 	}
 	
-	private void textBoxValue(WebElement element,String textValue) {
-		element.sendKeys(textValue);
+	public String getProperty(String key) throws IOException {
+		String path =System.getProperty("user.dir")+"\\credentials.properties";
+		Properties prop = new Properties();
+		prop.load(new FileInputStream(new File(path)));
+		 return prop.get(key).toString();
 	}
 	
-	private void click(WebElement element) {
-		element.click();
-	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
 }

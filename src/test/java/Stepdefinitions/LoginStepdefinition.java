@@ -1,38 +1,43 @@
 package Stepdefinitions;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import java.io.IOException;
 
+import PageObjectManager.PageManager;
+import Utilities.TestUtilities;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class LoginStepdefinition {
-	WebDriver driver;
+public class LoginStepdefinition extends TestUtilities{
+	
 	@Given("I launch browser")
-	public void iLaunchBrowser() {
-	     driver = new ChromeDriver();
+	public void iLaunchBrowser() throws IOException {
+	   launchBrowser(getProperty("browserName"));
 	}
-	@When("I launch URL and verify title")
-	public void iLaunchURLAndVerifyTitle() {
-	    driver.get("https://www.facebook.com/");
+	@Given("I launch url")
+	public void iLaunchUrl() throws IOException {
+	    launchUrl(getProperty("url"));
 	}
-	@When("I enter username {string}")
-	public void iEnterUsername(String string) {
-	   driver.findElement(By.id("email")).sendKeys(string);
+	@When("I click main login button")
+	public void iClickMainLoginButton() {
+		
+	}
+	@When("I enter email {string}")
+	public void iEnterEmail(String string) {
+		
 	}
 	@When("I enter password {string}")
 	public void iEnterPassword(String string) {
-		driver.findElement(By.id("pass")).sendKeys(string);   
+	    
 	}
+	@When("I click login")
+	public void iClickLogin() {
+	    
+	}
+	@Then("I click logout")
+	public void iClickLogout() {
+	    
+	}
+
 	
-	@When("I click login button")
-	public void iClickLoginButton() {
-		driver.findElement(By.name("login")).click(); 
-	}
-//	@Then("I verify welcome message {string}")
-//	public void iVerifyWelcomeMessage(String string) {
-//		driver.findElement(By.name("login")).click(); 
-//	}
 }

@@ -5,10 +5,10 @@ import io.cucumber.testng.CucumberOptions;
 import io.cucumber.testng.CucumberOptions.SnippetType;
 
 @CucumberOptions(
-		features="C:\\Users\\admin\\MASTER_GANESH\\Ganesh_Cucumber_Framework_Automation\\src\\test\\resources\\Features",
-		glue="Stepdefinitions",
-		snippets =SnippetType.CAMELCASE,
-		dryRun=false
+		features="src\\test\\resources\\Features", // Folder Of Feature File
+		glue="Stepdefinitions", // Packages Of Stepdefinition
+		snippets =SnippetType.CAMELCASE, //  To Avoid Underscore In Methods
+		dryRun=true  // To Generate If Any Missed Snippets
 		)
 public class TestRunner extends AbstractTestNGCucumberTests{
 
