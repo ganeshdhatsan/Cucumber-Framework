@@ -63,7 +63,7 @@ public class LoginStepdefinition extends TestUtilities {
 	}
 	@When("I enter {string} password")
 	public void iEnterPassword(String password) {
-		PageManager.getInstance().getLoginPage().passUserName(password); 
+		PageManager.getInstance().getLoginPage().passPassword(password); 
 	}
 
 
