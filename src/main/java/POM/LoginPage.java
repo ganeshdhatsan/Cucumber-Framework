@@ -1,8 +1,13 @@
 package POM;
 
+import java.time.Duration;
+
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Utilities.TestUtilities;
 
@@ -23,6 +28,9 @@ public class LoginPage extends TestUtilities {
 
 	@FindBy(xpath = "//input[@type='submit']")
 	private WebElement login;
+
+	@FindBy(xpath = "//input[@id='small-searchterms']")
+	private WebElement searchBox;
 
 	@FindBy(className = "ico-logout")
 	private WebElement logout;
@@ -47,30 +55,33 @@ public class LoginPage extends TestUtilities {
 		return logout;
 	}
 
+	public WebElement getSearchBox() {
+		return searchBox;
+	}
 ////////////////////////////
 
 	public void clickMainLogin() {
 		getMainLogin().click();
 	}
 
-	private void passUserName(String username) {
+	public void passUserName(String username) {
 		getEmail().sendKeys(username);
-
 	}
 
-	private void passPassword(String password) {
+	public void passPassword(String password) {
 		getPassword().sendKeys(password);
 	}
 
-	private void clickLogin() {
+	public void clickLogin() {
 		getLogin().click();
-
 	}
 
-	private void clickLogout() {
-
+	public void clickLogout() {
 		getLogout().click();
-
 	}
 
+	public void passValueSearchBox(String text) {
+		getSearchBox().sendKeys(text);
+
+	}
 }

@@ -4,10 +4,14 @@ import POM.LoginPage;
 
 public class PageManager {
 
-	public static PageManager pageManager;
+	private static PageManager pageManager;
 	
 	private LoginPage loginPage;
-
+	
+	public LoginPage getLoginPage(){
+		return loginPage;
+	}
+	
 	private PageManager() {
 		loginPage = new LoginPage();
 	}

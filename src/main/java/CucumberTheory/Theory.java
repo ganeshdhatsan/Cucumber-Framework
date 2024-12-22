@@ -93,6 +93,30 @@ Each tool has its strengths, and combining tools is often the best approach for 
 	 * 9.Then
 	 * 10.But
 	 */
+	/**
+	 * passing string value in the step as hardcoded value--> "java"
+	 * passing integer value in the step as hardcoded value--> numeric value (5)
+	 * passing string value in the step through examples--> "<value>"
+	 * passing integer value in the step through examples--> <value>
+	 * for title we need to use like <TC_Name>
+	 * ex:Scenario Outline: Validate Webshop login with <TC_Name>
+	 */
+	
+	/**
+	 * TagName (symbol-> @)
+	 * Purpose : To restrict the execution
+	 * Place : Top of the title 
+	 * Tag name will not be applicable for background
+	 * we can provide feature/scenario/scenario outline/examples
+	 */
+	/**
+	 * Background:
+	 * 1.its applicable only for the corresponding feature file , will not work for other feature file
+	 * 2.we can't create more than one background for each feature file
+	 * 3.should contain common steps of each scenario and scenario outline &
+	 * which will going to execute before each scenario and scenario outline
+	 * 4.Will execute before each scenario and scenario outline for every execution
+	 */
 	
 	/**
 	 * Hooks(Annotations):
@@ -235,18 +259,19 @@ Note that the filter options cucumber.filter.name and cucumber.filter.tags are c
 	/**
 	 * Folder Structure:
 src/main/java
-    ├── utilities            // Utility classes (e.g., WebDriverManager, ConfigReader)
-    ├── base                 // Base classes (e.g., TestBase)
-src/test/java
+    ├── utilities            // Utility classes (e.g., WebDriverManager, ConfigReader,reusable methods)
     ├── stepDefinitions      // Cucumber Step Definitions
     ├── hooks                // Cucumber Hooks
-    ├── runners              // TestNG or Cucumber Runners
     ├── reports              // Test Reports (e.g., Extent Reports)
     ├── POM             
     └── Page Object Manager 
+src/main/resource
+    ├── properties file      // Test Data (Credentials like username,password,url)       
+    └── yaml                 // Test Data (Credentials like Environment,role)
+src/test/java
+    ├── runners 
 src/test/resource
     ├── features             // Cucumber Feature Files
-    └── data                 // Test Data (e.g., JSON, Excel)
     
     --- properties file (credentials)
     --- yaml file(Role & Env)
@@ -264,8 +289,20 @@ b.Add Cucumber Pluggin in our IDE like Eclipse, IntelliJ.
 2. Utilities
 Create Reusable Methods
 
+Note: After Utilities Creation need to follow below steps
+1.Create Folder Structure
+a.Feature File        -- src/test/resources
+b.TestRunner          -- src/test/java
+c.StepDefinition      -- src/main/java
+(Create Step Definitions for the corresponding feature file:
+Map each Gherkin step to code logic)
+
 3.Create a Feature File:
 Write high-level requirements in a structured, natural language.
+
+Note: Execute Runner Class 
+1.Generate snippets
+2.paste all snippets into corresponding stepdefinition file
 
 4. Page Object Model
 Maintain Page Objects/Webelements and Corresponding Methods
@@ -273,10 +310,7 @@ Maintain Page Objects/Webelements and Corresponding Methods
 5. Page Object Manager
 Maintain Objects for page Classes
 
-6A.Create Step Definitions for the corresponding feature file:
-Map each Gherkin step to code logic.
-
-6B.Write Automation Scripts inside the Step Definitions :
+6.Write Automation Scripts inside the Step Definitions :
 Call methods from Page object model
 (Integrate with tools like Selenium, Appium, or REST-assured for web, mobile, and API automation.)
 
