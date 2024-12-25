@@ -55,7 +55,7 @@
 					</includes>
 					<systemPropertyVariables>
 						<!-- Pass Tags to Cucumber -->
-						<cucumber.filter.tags>@validlogin</cucumber.filter.tags>
+						<cucumber.filter.tags>@tst1</cucumber.filter.tags>
 					</systemPropertyVariables>
 				</configuration>
 			</plugin>

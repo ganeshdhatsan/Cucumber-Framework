@@ -11,12 +11,12 @@ import io.cucumber.testng.CucumberOptions.SnippetType;
 		dryRun=false,  // To Generate If Any Missed Snippets without execution(true)/with execution(false)
 //		tags="@checklogin"// feature level		
 //		tags="@invalidloginsecondapproach" , // not or ~ will be used to avoid specific tag
-//		tags="@uat"
+		tags="@uat"
 //		tags="not @invalidlogin"  // not or ~ will be used to avoid specific tag
 //		tags="@smoke or @regression"
 //		tags="@smoke and @regression"
 //		tags="@regression and not @uat"
-		tags="(@smoke or @regression) and (not @tst1)"
+//		tags="(@smoke or @regression) and (not @tst1)"
 /**
  * type 1: from Run as 
  * test
